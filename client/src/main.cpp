@@ -1,7 +1,7 @@
 #include <iostream>
-#include "network/include/foo.hpp"
+#include <stdio.h>
 
 int main() {
-    std::cout << foo() << std::endl;
+
     return 0;
 }
