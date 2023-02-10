@@ -1,6 +1,6 @@
 #include "display/display.hpp"
 
-#include <iostream>
+#include <ncurses.h>
 
 namespace display {
 
@@ -8,9 +8,9 @@ namespace display {
         while (true) {
             for (auto& player : players) {
                 if (!player.second.is_player_updating.load()) {
-                    std::cout << player.first;
                 }
             }
+            refresh();
         }
     }
 

@@ -1,13 +1,13 @@
 #pragma once
 
 #include <cstdint>
-#include <vector>
+#include <deque>
 #include <atomic>
 #include <mutex>
 
 namespace core {
 
-    enum class PlayerDirection : std::uint8_t { kTop, kRight, kDown, kLeft };
+    enum class PlayerDirection : std::uint8_t { kUp, kRight, kDown, kLeft };
 
     struct Position {
         std::uint8_t x{};
@@ -15,13 +15,14 @@ namespace core {
     };
 
     struct PlayerState {
-        std::uint8_t size{};
+        std::uint8_t current_score{};
         std::uint8_t max_player_score{};
         PlayerDirection current_direction{};
-        std::vector<Position> body;
+        std::deque<Position> body;
     };
 
     struct PlayerData {
+        std::uint8_t player_id{};
         std::atomic<bool> is_player_updating{true};
         PlayerState player_state;
     };

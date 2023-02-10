@@ -11,8 +11,12 @@ add_executable(${PROJECT_NAME}
 
 #add_subdirectory(../libraries/network /tmp/network-snake/network-build)
 include_directories(../libraries/)
+#find_package(ncurses REQUIRED)
+
+#set(CMAKE_CXX_FLAGS "-lncurses")
 
 target_link_libraries(${PROJECT_NAME} PUBLIC Network)
+target_link_libraries(${PROJECT_NAME} PUBLIC ncurses)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
         "${PROJECT_BINARY_DIR}"
