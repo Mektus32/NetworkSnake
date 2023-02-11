@@ -3,14 +3,20 @@ project(NetworkSnakeClient)
 
 set(CMAKE_CXX_STANDARD 23)
 
+include_directories(include)
+
 add_executable(${PROJECT_NAME}
 #        include/
-        src/main.cpp)
+        src/main.cpp src/core/game_synchronizer.cpp include/core/game_synchronizer.hpp include/input/input.hpp include/core/player_params.hpp src/input/input.cpp include/display/display.hpp src/display/display.cpp)
 
 #add_subdirectory(../libraries/network /tmp/network-snake/network-build)
 include_directories(../libraries/)
+#find_package(ncurses REQUIRED)
+
+#set(CMAKE_CXX_FLAGS "-lncurses")
 
 target_link_libraries(${PROJECT_NAME} PUBLIC Network)
+target_link_libraries(${PROJECT_NAME} PUBLIC ncurses)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
         "${PROJECT_BINARY_DIR}"

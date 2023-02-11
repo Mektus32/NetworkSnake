@@ -1,7 +1,12 @@
-#include <iostream>
-#include "network/include/foo.hpp"
+#include <core/game_synchronizer.hpp>
+
+#include <stdlib.h>
+#include <unistd.h>
+
+#include <ncurses.h>
 
 int main() {
-    std::cout << foo() << std::endl;
+    core::GameSynchronizer game_synchronizer;
+    game_synchronizer.StartGameLoop();
     return 0;
 }
